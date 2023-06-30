@@ -1,0 +1,143 @@
+@import "./settings-helpers/normalize.scss";
+@import "./settings-helpers/fonts.scss";
+@import "./settings-helpers/variables-mixins.scss";
+@import "./settings-helpers/spinner.scss";
+
+body {
+  padding: 100px 15px;
+  background: url("../images/weather-background.jpg") no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 100%;
+  min-width: 320px;
+  max-width: $breakpoint-large;
+  margin: auto;
+}
+
+.forecast {
+  display: flex;
+  flex-wrap: wrap;
+  color: $text-color;
+  font-family: $text-font;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.forecast__day {
+  background: rgba($brand-color-lighten, 0.8);
+  flex-grow: 1;
+  text-align: center;
+  min-height: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &--today {
+    flex: 1 0 100%;
+  }
+
+  &:nth-child(even) {
+    background: rgba($brand-color-darken, 0.8);
+  }
+}
+
+.forecast__header {
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast__weekday {
+  font: 400 1rem $text-font;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.7rem;
+
+  &--today {
+    background: transparent;
+  }
+}
+
+.forecast__button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  padding: 0.7rem;
+  background: transparent;
+  background: rgba(0, 0, 0, 0.1);
+  color: $text-color;
+  transition: background 0.2s ease-out;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.forecast__date {
+  padding: 0.7rem;
+}
+
+.forecast__content--today {
+  padding: 2rem 1rem;
+}
+
+.forecast__location {
+  font: 400 1em $text-font;
+  margin-bottom: 2rem;
+}
+
+.forecast__degree {
+  font: 700 1.5rem $text-font;
+  padding-bottom: 0.7rem;
+
+  &--today {
+    padding-bottom: 2rem;
+    font-size: 0;
+  }
+}
+
+.forecast__degree-num {
+  display: inline-block;
+  margin-right: 1rem;
+  font: 700 1.5rem $text-font;
+
+  &--today {
+    font: 700 6rem $text-font;
+  }
+}
+
+.forecast__icon--big {
+  display: inline-block;
+  font: 700 6rem $text-font;
+}
+
+.forecast__content-list {
+  padding: 0;
+  margin: 0;
+}
+
+.forecast__content-item {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 1.5rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.forecast__icon {
+  display: block;
+  font-size: 3rem;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .forecast__day {
+    flex: 1 1;
+
+    &--today {
+      flex: 5 0;
+    }
+  }
+}
